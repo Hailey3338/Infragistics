@@ -53,3 +53,5 @@ InitProduct(){
        
 });
 });
+$(()=>{
+   var Ubersicht = productGrid.
