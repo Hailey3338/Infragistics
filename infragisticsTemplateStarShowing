@@ -1,0 +1,65 @@
+$(function () {
+    var data = $("#user");
+    var uSourceUrl = data.attr("data-user");
+    $("#user").igGrid({
+        columns: [
+            {
+                headerText: "IdxClass",
+                key: "idxClass",
+                dataType: "number",
+                hidden: true
+            },
+            {
+                headerText: "User Name",
+                key: "UserName",
+                dataType: "string"
+            },
+            {
+                headerText: "Age",
+                key: "Age",
+                dataType: "number"
+
+            },
+            {
+                headerText: "Email",
+                key: "Email",
+                dataType: "string"
+
+            },
+            {
+                headerText: "City",
+                key: "City",
+                dataType: "string"
+
+            },
+            {
+                headerText: "Hobby",
+                key: "Hobby",
+                dataType: "string"
+
+            },
+            {
+                headerText: "ClassName",
+                key: "ClassName",
+                dataType: "string"
+
+            },
+            {
+                headerText: "Boy",
+                key: "IsBoy",
+                //formatter: function (item) {
+                //    if (item == null) {
+                //        return "<i style='visibility: hidden;' class='fas fa-star'></i>"
+                //    } else if (item) {
+                //        return "<i class='fas fa-star' aria-hidden='true'></i>"
+                //    } else if (!item) {
+                //        return "<i class='fas fa-star-half-alt' aria-hidden='true'></i>"
+                //    }
+                //}
+                template: "{{if ${IsBoy}==true}}<i class='fas fa-star' aria-hidden='true'></i> {{elseif ${IsBoy}==false}} <i class='fas fa-star-half-alt' aria-hidden='true'></i> {{elseif ${IsBoy}==null}} <i style='visibility: hidden;' class='fas fa-star'></i>{{/if}}"
+            }
+        ],
+        width: '100%',
+        dataSource: uSourceUrl
+    });
+});
