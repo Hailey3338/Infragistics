@@ -1,0 +1,82 @@
+$(function () {
+    var data = $("#user");
+    var uSourceUrl = data.attr("data-user");
+    $("#user").igGrid({
+        primaryKey: "UserName",
+        columns: [
+            {
+                headerText: "IdxClass",
+                key: "idxClass",
+                dataType: "number",
+                hidden: true
+            },
+            {
+                headerText: "User Name",
+                key: "UserName",
+                dataType: "string"
+            },
+            {
+                headerText: "Age",
+                key: "Age",
+                dataType: "number"
+
+            },
+            {
+                headerText: "Email",
+                key: "Email",
+                dataType: "string"
+
+            },
+            {
+                headerText: "City",
+                key: "City",
+                dataType: "string"
+
+            },
+            {
+                headerText: "Hobby",
+                key: "Hobby",
+                dataType: "string"
+
+            },
+            {
+                headerText: "ClassName",
+                key: "ClassName",
+                dataType: "string"
+
+            }
+        ],
+        width: '100%',
+        dataSource: uSourceUrl,
+        features: [
+            {
+                name: "Updating",
+                enableAddRow: true,
+                editMode: "row",
+                enableDeleteRow: true,
+            }
+        ],
+    });
+});
+
+
+
+function myFunction() {
+    var x = document.getElementById("kerber");
+    var y = document.getElementById("user");
+    if ($("#option1").prop("checked") == true) {
+        x.style.display = "block";
+        y.addEventListener("click", stopIt);
+    }
+    else if ($("#option2").prop("checked") == true){
+        x.style.display = "none";
+        y.removeEventListener("click", stopIt);
+    }
+    else if ($("#option3").prop("checked") == true) {
+        x.style.display = "none";
+    }
+}
+
+function stopIt(e) {
+    e.stopPropagation();
+}
